@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 
 import re
-import requests
 from des import *
 from image_match import *
 
@@ -122,7 +121,11 @@ if __name__ == '__main__':
     for i in range(10):
         referer_url = 'https://www.xiaohongshu.com/web-login/captcha?redirectPath=https%3A%2F%2Fwww.xiaohongshu.com%2Fuser%2Fprofile%2F559ba95cf5a263177913fb00'
         init_data = init_slider(referer_url)
-        distance = get_distance(init_data['bg_url'], init_data['fg_url'])
-        trace, times = get_trace(distance)
-        des_data = get_des_data(init_data, distance, trace, times)
-        verify_slider(des_data, referer_url)
+        # distance = get_distance(init_data['bg_url'], init_data['fg_url'])
+        distance = TemplateMatching(init_data['bg_url'], init_data['fg_url']).entrance()
+        if distance:
+            trace, times = get_trace(distance)
+            des_data = get_des_data(init_data, distance, trace, times)
+            verify_slider(des_data, referer_url)
+        else:
+            print('计算滑块距离失败, 请重试')
