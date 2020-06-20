@@ -8,7 +8,7 @@
 不通过的原因均为计算滑块与缺口的距离错误, 从而计算轨迹错误, 自然也就无法通过\
 在测试几次之后我发现计算出错的原因如下\
 <img src="https://crawlercdn.goheadline.com/WechatIMG356.png">
-[不是完整图片的看这里](https://crawlercdn.goheadline.com/WechatIMG356.png)
+[不是完整图片的看这里](https://crawlercdn.goheadline.com/WechatIMG356.png)\
 可以看出距离计算错误的验证码, 都是在正确缺口处的前面还有一个干扰缺口\
 在这里真的强烈推荐sketch这个软件, 滑动图片, 计算距离的一把好手\
 然后就是调试的整个过程, 这个周末有时间的话应该会写篇文章
